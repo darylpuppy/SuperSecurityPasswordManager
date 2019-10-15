@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Daryl\\AndroidStudioProjects\\SecurityProject\\backgroundMailLibrary\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-hu\\values-hu.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Daryl\\.gradle\\caches\\transforms-2\\files-2.1\\8c93904ed43ab2895044ede74d9f9b57\\res\\values-hu\\values-hu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\Daryl\\AndroidStudioProjects\\SecurityProject\\backgroundMailLibrary\\build\\intermediates\\res\\merged\\release\\values-hu\\values-hu.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Daryl\\.gradle\\caches\\transforms-2\\files-2.1\\8c93904ed43ab2895044ede74d9f9b57\\res\\values-hu\\values-hu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}
