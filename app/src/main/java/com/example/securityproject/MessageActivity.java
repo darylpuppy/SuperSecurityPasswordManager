@@ -10,7 +10,7 @@ import android.widget.Spinner;
 
 import com.kristijandraca.backgroundmaillibrary.BackgroundMail;
 
-public class MessageActivity extends AppCompatActivity {
+public class MessageActivity extends AppCompatActivity{
     EditText etNumber;
     Spinner sProvider;
 
@@ -48,6 +48,15 @@ public class MessageActivity extends AppCompatActivity {
             bm.setFormSubject("Confirmation");
             bm.setFormBody("Your security code is: 1234");
             bm.send();
+
+            //get user to input security code
+            openDialog();
         }
     }
+
+    public void openDialog(){
+        TxtMsgDialog txtMsgDialog = new TxtMsgDialog();
+        txtMsgDialog.show(getSupportFragmentManager(),"text msg dialog");
+    }
+
 }
