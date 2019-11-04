@@ -3,6 +3,7 @@ package com.example.securityproject;
 import android.app.Dialog;
 import android.content.DialogInterface;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,9 +41,9 @@ public class EmailDialog extends AppCompatDialogFragment {
                     public void onClick(DialogInterface dialog, int which) {
                         String securityCode =  etSecurityCode.getText().toString();
                         if(securityCode.equals(code)){
-                            //start email activity
-                            //Intent intent = new Intent(getActivity(), LocationActivity.class);
-                            //startActivity(intent);
+                            //start location activity
+                            Intent intent = new Intent(getActivity(), LocationActivity.class);
+                            startActivity(intent);
                         }else{
                             dismiss();
                         }
