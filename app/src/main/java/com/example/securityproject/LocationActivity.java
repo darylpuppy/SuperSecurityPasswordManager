@@ -8,7 +8,6 @@ import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.ResultReceiver;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +29,7 @@ public class LocationActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
-       // tvLocation = findViewById(R.id.tvLocation);
+        tvLocation = findViewById(R.id.tvLocation);
         client = LocationServices.getFusedLocationProviderClient(this);
         client.getLastLocation()
                 .addOnSuccessListener(this, new OnSuccessListener<Location>() {
@@ -57,7 +56,7 @@ public class LocationActivity extends AppCompatActivity{
 
     }
     public void denyLocation(View v){
-        //force logout
+        finish();
     }
 
     /**
@@ -93,14 +92,16 @@ public class LocationActivity extends AppCompatActivity{
             if(addressOutput == null){
                 addressOutput = "";
             }
-            //displayAddressOutput();
-            Log.i("LocationActivity",addressOutput);
-            //Show toast msg if address was found
+            //Display if address was found
             if(resultCode == Constants.SUCCESS_RESULT){
-                Toast.makeText(LocationActivity.this,R.string.address_found, Toast.LENGTH_LONG).show();
+                displayAddressOutput();
+
             }
         }
-       //
+
+        protected void displayAddressOutput(){
+            tvLocation.setText(addressOutput);
+        }
 
     }
 

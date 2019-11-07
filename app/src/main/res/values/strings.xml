@@ -2,7 +2,7 @@
     <string name="app_name">SecurityProject</string>
     <string name="txtMsgPrompt">To authenticate your identity, we\'ll send you  a security code via text message. Please enter your phone number to continue.</string>
     <string name="emailPrompt">To authenticate your identity, we\'ll send you  a security code via email. Please enter your email address to continue.</string>
-    <string name="locationPrompt">Almost there!</string>
+    <string name="locationPrompt">Almost there! Your ID is being used to sign in at this location, continue?</string>
     <string name="security_code">Security Code</string>
     <string name="allow">Allow</string>
     <string name="dont_allow">Don\'t Allow</string>
@@ -12,4 +12,5 @@
     <string name="no_address_found">Sorry, no address found.</string>
     <string name="address_found">Success! Address found.</string>
     <string name="no_geocoder_available">Geocoder not present.</string>
+    <string name="location_hint">Address displays here on run</string>
 </resources>
