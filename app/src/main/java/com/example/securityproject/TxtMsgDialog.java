@@ -41,7 +41,8 @@ public class TxtMsgDialog extends AppCompatDialogFragment {
                             Intent intent = new Intent(getActivity(),EmailActivity.class);
                             startActivity(intent);
                         }else{
-                            dismiss();
+                            //force logout and return user to login activity (main)
+
                         }
                     }
                 });

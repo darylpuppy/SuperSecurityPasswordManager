@@ -23,7 +23,7 @@ public class EmailActivity extends AppCompatActivity {
         if(validFormat(email)){
             openDialog();
         }else{
-            Toast.makeText(this,"Email Invalid",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Email Invalid",Toast.LENGTH_LONG).show();
         }
     }
 

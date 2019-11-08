@@ -22,7 +22,7 @@ public class LocationActivity extends AppCompatActivity{
     protected Location lastLocation;
     // handles the results of the address lookup
     private AddressResultReceiver resultReceiver;
-    TextView tvLocation;
+    private TextView tvLocation;
 
 
     @Override
@@ -55,10 +55,15 @@ public class LocationActivity extends AppCompatActivity{
         startActivity(intent);
 
     }
+
     public void denyLocation(View v){
-        finish();
+        //Force logout and return user to login (main) activity
+        logout();
     }
 
+    private void logout(){
+
+    }
     /**
      * Start service with explicit intent
      */

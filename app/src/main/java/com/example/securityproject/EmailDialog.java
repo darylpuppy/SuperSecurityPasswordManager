@@ -45,7 +45,8 @@ public class EmailDialog extends AppCompatDialogFragment {
                             Intent intent = new Intent(getActivity(), LocationActivity.class);
                             startActivity(intent);
                         }else{
-                            dismiss();
+                            //Force logout and return user to login activity (main)
+                            
                         }
                     }
                 });
