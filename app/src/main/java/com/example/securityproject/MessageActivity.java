@@ -32,8 +32,8 @@ public class MessageActivity extends AppCompatActivity{
         String domain = domains[sProvider.getSelectedItemPosition()];
         String number = etNumber.getText().toString().replace("-", "").replace("(", "").replace(" ", "");
 
-        boolean validNumber = true;
-        if (number.length() == 10){
+        boolean validNumber = number.length() == 10;
+        if (validNumber){
             for (int i = 0;i < number.length();i++){
                 if (((int) number.charAt(i)) < 48 || ((int) number.charAt(i)) > 57){
                     validNumber = false;
