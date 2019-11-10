@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -15,7 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".MessageActivity"></activity>
+        <activity android:name=".HomeActivity"></activity>
+        <activity
+            android:name=".LocationActivity"
+            android:exported="true" />
+        <activity android:name=".EmailActivity" />
+        <activity android:name=".MessageActivity" />
         <activity android:name=".CreateAccount" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -24,6 +31,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".FetchAddressIntentService"
+                android:exported="false"/>
     </application>
 
 </manifest>

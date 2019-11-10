@@ -10,7 +10,7 @@ import android.widget.Spinner;
 
 import com.kristijandraca.backgroundmaillibrary.BackgroundMail;
 
-public class MessageActivity extends AppCompatActivity {
+public class MessageActivity extends AppCompatActivity{
     EditText etNumber;
     Spinner sProvider;
 
@@ -32,8 +32,8 @@ public class MessageActivity extends AppCompatActivity {
         String domain = domains[sProvider.getSelectedItemPosition()];
         String number = etNumber.getText().toString().replace("-", "").replace("(", "").replace(" ", "");
 
-        boolean validNumber = true;
-        if (number.length() == 10){
+        boolean validNumber = number.length() == 10;
+        if (validNumber){
             for (int i = 0;i < number.length();i++){
                 if (((int) number.charAt(i)) < 48 || ((int) number.charAt(i)) > 57){
                     validNumber = false;
@@ -48,6 +48,15 @@ public class MessageActivity extends AppCompatActivity {
             bm.setFormSubject("Confirmation");
             bm.setFormBody("Your security code is: 1234");
             bm.send();
+
+            //get user to input security code
+            openDialog();
         }
     }
+
+    public void openDialog(){
+        TxtMsgDialog txtMsgDialog = new TxtMsgDialog();
+        txtMsgDialog.show(getSupportFragmentManager(),"text msg dialog");
+    }
+
 }
