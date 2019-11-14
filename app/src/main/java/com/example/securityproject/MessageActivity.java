@@ -2,61 +2,63 @@ package com.example.securityproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.kristijandraca.backgroundmaillibrary.BackgroundMail;
 
 public class MessageActivity extends AppCompatActivity{
-    EditText etNumber;
-    Spinner sProvider;
+    int PIN;
+    String phoneNumber;
+    String emailAddress;
+    Button bText;
+    Button bEmail;
+    EditText etPIN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
-        etNumber = findViewById(R.id.etNumber);
-        sProvider = findViewById(R.id.sProvider);
+        PIN = (int)Math.floor(Math.random() * 100000);
+        phoneNumber = getIntent().getStringExtra("phoneNumber");
+        emailAddress = getIntent().getStringExtra("emailAddress");
+        bText = findViewById(R.id.bText);
+        bEmail = findViewById(R.id.bEmail);
+        etPIN = findViewById(R.id.etPIN);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, new String[] {"AT&T", "T-Mobile", "Sprint", "Verizon", "Virgin Mobile"});
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sProvider.setAdapter(adapter);
+        bText.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                sendPIN(phoneNumber);
+            }
+        });
+        bEmail.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                sendPIN(emailAddress);
+            }
+        });
     }
 
-    public void sendMessage(View v){
-        String[] domains = new String[] {"txt.att.net", "tmomail.net", "messaging.sprintpcs.com", "vtext.com", "vmobl.com"};
-        String domain = domains[sProvider.getSelectedItemPosition()];
-        String number = etNumber.getText().toString().replace("-", "").replace("(", "").replace(" ", "");
-
-        boolean validNumber = number.length() == 10;
-        if (validNumber){
-            for (int i = 0;i < number.length();i++){
-                if (((int) number.charAt(i)) < 48 || ((int) number.charAt(i)) > 57){
-                    validNumber = false;
-                }
-            }
-        }
-        if (validNumber) {
+    public void sendPIN(String address){
             BackgroundMail bm = new BackgroundMail(this);
             bm.setGmailUserName("cs4389utd@gmail.com");
             bm.setGmailPassword("SuperSecurity1");
-            bm.setMailTo(number + "@" + domain);
+            bm.setMailTo(address);
             bm.setFormSubject("Confirmation");
-            bm.setFormBody("Your security code is: 1234");
+            bm.setFormBody("Your security code is: " + PIN);
             bm.send();
+    }
 
-            //get user to input security code
-            openDialog();
+    public void submitPIN(View v){
+        String inputPIN = etPIN.getText().toString();
+        if (inputPIN.equals("" + PIN)){
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
         }
     }
-
-    public void openDialog(){
-        TxtMsgDialog txtMsgDialog = new TxtMsgDialog();
-        txtMsgDialog.show(getSupportFragmentManager(),"text msg dialog");
-    }
-
 }

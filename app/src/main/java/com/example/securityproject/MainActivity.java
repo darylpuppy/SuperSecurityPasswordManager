@@ -33,17 +33,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void signIn(View v){
-        System.out.println("signing in");
         String username = etUsername.getText().toString();
         String password = etPassword.getText().toString();
 
         try {
             BufferedReader fileReader = new BufferedReader(new InputStreamReader(openFileInput(username)));
             String realPassword = fileReader.readLine();
-            System.out.println(realPassword);
+            String phoneNumber = fileReader.readLine();
+            String emailAddress = fileReader.readLine();
 
             if (realPassword.equals(password)){
                 Intent intent = new Intent(this, MessageActivity.class);
+                intent.putExtra("phoneNumber", phoneNumber);
+                intent.putExtra("emailAddress", emailAddress);
                 startActivity(intent);
             }
         } catch (FileNotFoundException e) {
