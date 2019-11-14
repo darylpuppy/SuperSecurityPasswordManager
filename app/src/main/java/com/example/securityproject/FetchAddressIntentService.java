@@ -84,11 +84,9 @@ public class FetchAddressIntentService extends IntentService {
             Address address = addresses.get(0);
             ArrayList<String> addressFragments = new ArrayList<String>();
 
-            // Fetch the address lines using getAddressLine,
-            // join them, and send them to the thread.
-            for(int i = 0; i <= address.getMaxAddressLineIndex(); i++) {
-                addressFragments.add(address.getAddressLine(i));
-            }
+            // Fetch just the zipcode
+            addressFragments.add(address.getPostalCode());
+
             Log.i(TAG, getString(R.string.address_found));
             //Sends results back to LocationActivity
             deliverResultToReceiver(Constants.SUCCESS_RESULT,
