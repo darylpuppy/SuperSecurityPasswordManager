@@ -17,10 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".HomeActivity"></activity>
-        <activity
-            android:name=".LocationActivity"
-            android:exported="true" />
+        <activity android:name=".HomeActivity"/>
+        <activity android:name=".LocationActivity" />
         <activity android:name=".EmailActivity" />
         <activity android:name=".MessageActivity" />
         <activity android:name=".CreateAccount" />
