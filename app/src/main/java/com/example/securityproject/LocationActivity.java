@@ -29,8 +29,6 @@ public class LocationActivity extends AppCompatActivity{
     private AddressResultReceiver resultReceiver;
     private TextView tvLocation;
 
-    //String zipCode = "94043"; //testing
-    String zipCode;
     String user;
     Button buttonContinue;
     private ArrayList<String> zipList;
@@ -40,13 +38,11 @@ public class LocationActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
-        //get zip code from message activity
-        zipCode = getIntent().getStringExtra("zipCode");
         user = getIntent().getStringExtra("user");
         tvLocation = findViewById(R.id.tvLocation);
         buttonContinue = findViewById(R.id.buttonContinue);
         buttonContinue.setEnabled(false);
-        //get zipcodes from file
+        //get zip codes from user file to verify
         zipList = getZipCodes();
         client = LocationServices.getFusedLocationProviderClient(this);
         client.getLastLocation()
@@ -114,9 +110,8 @@ public class LocationActivity extends AppCompatActivity{
         }
 
         protected void displayAddressOutput(){
-            //tvLocation.setText(addressOutput);
-
-            if(addressOutput.equals(zipCode) || zipList.contains(addressOutput)){
+            //check users saved zip codes
+            if(zipList.contains(addressOutput)){
                 tvLocation.setText("Zip Code " + addressOutput + " verified.");
                 //enable continue button
                 buttonContinue.setEnabled(true);
@@ -124,8 +119,7 @@ public class LocationActivity extends AppCompatActivity{
                 Bundle bundle = new Bundle();
                 bundle.putString("newZipCode", addressOutput);
                 bundle.putString("user",user);
-                //launch warning dialog
-                //tvLocation.setText(addressOutput + "isn't not a recognized location.\n");
+                //notify user  if location not recognized
                 LocationDialog locationDialog = new LocationDialog();
                 locationDialog.setArguments(bundle);
                 locationDialog.show(getSupportFragmentManager(),"location dialog");
