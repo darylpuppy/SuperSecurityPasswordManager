@@ -13,4 +13,5 @@
     <string name="address_found">Success! Address found.</string>
     <string name="no_geocoder_available">Geocoder not present.</string>
     <string name="location_hint">Zip Code confirmation message</string>
+    <string name="add_entry">Add Entry</string>
 </resources>
