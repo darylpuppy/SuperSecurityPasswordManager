@@ -41,11 +41,16 @@ public class MainActivity extends AppCompatActivity {
             String realPassword = fileReader.readLine();
             String phoneNumber = fileReader.readLine();
             String emailAddress = fileReader.readLine();
+            String zipCode = fileReader.readLine();
+            fileReader.close();
 
             if (realPassword.equals(password)){
                 Intent intent = new Intent(this, MessageActivity.class);
                 intent.putExtra("phoneNumber", phoneNumber);
                 intent.putExtra("emailAddress", emailAddress);
+                //passing to message activity to pass into location activity
+                intent.putExtra("zipCode", zipCode);
+                intent.putExtra("user",username);
                 startActivity(intent);
             }
         } catch (FileNotFoundException e) {
