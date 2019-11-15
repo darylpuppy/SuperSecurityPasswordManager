@@ -16,7 +16,6 @@ public class MessageActivity extends AppCompatActivity{
     int PIN;
     String phoneNumber;
     String emailAddress;
-    String zipCode;
     String user;
     Button bText;
     Button bEmail;
@@ -30,7 +29,6 @@ public class MessageActivity extends AppCompatActivity{
         PIN = (int)Math.floor(Math.random() * 100000);
         phoneNumber = getIntent().getStringExtra("phoneNumber");
         emailAddress = getIntent().getStringExtra("emailAddress");
-        zipCode = getIntent().getStringExtra("zipCode");
         user = getIntent().getStringExtra("user");
         bText = findViewById(R.id.bText);
         bEmail = findViewById(R.id.bEmail);
@@ -63,7 +61,6 @@ public class MessageActivity extends AppCompatActivity{
         if (inputPIN.equals("" + PIN)){
             Intent intent = new Intent(this, LocationActivity.class);
             intent.putExtra("user", user);
-            intent.putExtra("zipCode", zipCode);
             startActivity(intent);
         }
     }

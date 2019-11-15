@@ -19,7 +19,6 @@
         tools:replace="android:icon">
         <activity android:name=".HomeActivity"/>
         <activity android:name=".LocationActivity" />
-        <activity android:name=".EmailActivity" />
         <activity android:name=".MessageActivity" />
         <activity android:name=".CreateAccount" />
         <activity android:name=".MainActivity">
