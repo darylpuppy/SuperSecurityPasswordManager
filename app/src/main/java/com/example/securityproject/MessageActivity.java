@@ -79,7 +79,7 @@ public class MessageActivity extends AppCompatActivity{
 
     public void submitPIN(View v){
         String inputPIN = etPIN.getText().toString();
-        if (inputPIN.equals("" + PIN) || true){
+        if (inputPIN.equals("" + PIN)){
             zipList = getZipCodes();if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED) {
 
@@ -93,7 +93,6 @@ public class MessageActivity extends AppCompatActivity{
     }
 
     public void checkLocation(){
-        System.out.println("hello checking location");
         client = LocationServices.getFusedLocationProviderClient(this);
         client.getLastLocation()
                 .addOnSuccessListener(this, new OnSuccessListener<Location>() {

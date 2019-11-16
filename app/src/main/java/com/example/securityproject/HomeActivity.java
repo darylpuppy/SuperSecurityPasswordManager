@@ -55,6 +55,10 @@ public class HomeActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        arrayAdapter = new ArrayAdapter(HomeActivity.this, android.R.layout.simple_list_item_1, arrayList);
+        listView = findViewById(R.id.EntryList);
+        listView.setAdapter(arrayAdapter);
+
         Button addEntry = findViewById(R.id.bAddEntry);
         addEntry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +84,6 @@ public class HomeActivity extends AppCompatActivity {
                         arrayList.add(entryList.toString(entryList.length()-1));
 
                         arrayAdapter = new ArrayAdapter(HomeActivity.this, android.R.layout.simple_list_item_1, arrayList);
-                        listView = findViewById(R.id.EntryList);
                         listView.setAdapter(arrayAdapter);
                     }
                 });
