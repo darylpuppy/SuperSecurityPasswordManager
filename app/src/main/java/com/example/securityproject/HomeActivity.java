@@ -12,6 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
@@ -23,6 +28,8 @@ public class HomeActivity extends AppCompatActivity {
     String username;
     String pass;
 
+    String accountName;
+
     Entry entry;
     EntryList entryList = new EntryList();
 
@@ -32,6 +39,21 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        accountName = getIntent().getStringExtra("account");
+
+        try {
+            BufferedReader fileReader = new BufferedReader(new InputStreamReader(openFileInput(accountName + "-passwords")));
+            String line;
+            while((line = fileReader.readLine()) != null) {
+                arrayList.add(line);
+            }
+            fileReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Button addEntry = findViewById(R.id.bAddEntry);
         addEntry.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +100,16 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void logout(View view){
+        try {
+            FileOutputStream fileWriter = openFileOutput(accountName + "-passwords", MODE_PRIVATE);
+            for(int x = 0; x < arrayList.size(); x++){
+                fileWriter.write((arrayList.get(x) + "\n").getBytes());
+            }
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

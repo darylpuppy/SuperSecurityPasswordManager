@@ -18,10 +18,6 @@ public class EntryList implements Serializable {
         Entry entry = this.entryList.get(index);
         return "Domain: " + entry.getDomain() + "\t Username: " + entry.getUsername() + "\t Password: " + entry.getPass();
     }
-
-    public Entry get(int x) {
-        return this.entryList.get(x);
-    }
 }
 
 class Entry implements Serializable{
