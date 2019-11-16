@@ -10,27 +10,33 @@ import android.os.Handler;
 import android.os.ResultReceiver;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.kristijandraca.backgroundmaillibrary.BackgroundMail;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class LocationActivity extends AppCompatActivity{
+    int PIN;
 
     private FusedLocationProviderClient client;
     //contains latitude and longitude to convert to address
     protected Location lastLocation;
     // handles the results of the address lookup
-    private AddressResultReceiver resultReceiver;
-    private TextView tvLocation;
+    //private AddressResultReceiver resultReceiver;
 
     String user;
+    String address;
+    String zipCode;
     Button buttonContinue;
+    EditText etBackupPIN;
     private ArrayList<String> zipList;
 
 
@@ -38,40 +44,43 @@ public class LocationActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+
+        PIN = (int)Math.floor(Math.random() * 100000);
+        etBackupPIN = findViewById(R.id.etBackupPIN);
         user = getIntent().getStringExtra("user");
-        tvLocation = findViewById(R.id.tvLocation);
+        address = getIntent().getStringExtra("address");
+        zipCode = getIntent().getStringExtra("zipCode");
         buttonContinue = findViewById(R.id.buttonContinue);
-        buttonContinue.setEnabled(false);
-        //get zip codes from user file to verify
-        zipList = getZipCodes();
-        client = LocationServices.getFusedLocationProviderClient(this);
-        client.getLastLocation()
-                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
-                        lastLocation = location;
-                        //Get last known location
-                        if(lastLocation == null){
-                            return;
-                        }
-                        if(!Geocoder.isPresent()){
-                            Toast.makeText(LocationActivity.this, R.string.no_geocoder_available,Toast.LENGTH_LONG).show();
-                            return;
-                        }
-                        //Start service
-                        startIntentService();
-                    }
-                });
+
+        sendPIN(address);
     }
 
-    public void goToHome(View v){
-        Intent intent = new Intent(this,HomeActivity.class);
-        startActivity(intent);
+    public void sendPIN(String address){
+        BackgroundMail bm = new BackgroundMail(this);
+        bm.setGmailUserName("cs4389utd@gmail.com");
+        bm.setGmailPassword("SuperSecurity1");
+        bm.setMailTo(address);
+        bm.setFormSubject("Second Confirmation");
+        bm.setFormBody("Your security code is: " + PIN);
+        bm.send();
+    }
+
+    public void startDialog(View v){
+        String enteredPIN = etBackupPIN.getText().toString();
+        if (enteredPIN == "" + PIN) {
+            Bundle bundle = new Bundle();
+            bundle.putString("newZipCode", zipCode);
+            bundle.putString("user", user);
+            //notify user  if location not recognized
+            LocationDialog locationDialog = new LocationDialog();
+            locationDialog.setArguments(bundle);
+            locationDialog.show(getSupportFragmentManager(),"location dialog");
+        }
 
     }
     /**
      * Start service with explicit intent
-     */
+     *//*
     protected void startIntentService(){
         Intent intent = new Intent(this, FetchAddressIntentService.class);
         resultReceiver = new AddressResultReceiver(new Handler());
@@ -84,7 +93,7 @@ public class LocationActivity extends AppCompatActivity{
 
     /**
      * Handles response from FetchAddressIntentService
-     */
+     *//*
     class AddressResultReceiver extends ResultReceiver{
         String addressOutput;
         public AddressResultReceiver(Handler handler){
@@ -149,6 +158,6 @@ public class LocationActivity extends AppCompatActivity{
         }finally {
             return zips;
         }
-    }
+    }*/
 
 }

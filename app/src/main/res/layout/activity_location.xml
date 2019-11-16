@@ -12,7 +12,6 @@
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +48,7 @@
         android:layout_marginRight="32dp"
         android:hint="@string/location_hint"
         android:padding="8dp"
+        android:text="Your current zip code is not recognized.\n Please enter another PIN to continue."
         android:textColor="#014C65"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,10 +64,22 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="64dp"
-        android:onClick="goToHome"
+        android:onClick="startDialog"
         android:text="Continue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/etBackupPIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="PIN"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

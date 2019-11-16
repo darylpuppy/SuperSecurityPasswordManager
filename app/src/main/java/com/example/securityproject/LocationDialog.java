@@ -28,25 +28,14 @@ public class LocationDialog extends AppCompatDialogFragment {
         }
         builder.setTitle("Zip Code " + newZipCode + " not recognized")
                 .setMessage(message)
-                .setNegativeButton("Don't Allow", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //logout and return user to login screen
-                        Intent intent = new Intent(getActivity(), MainActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-                        getActivity().finish();
-
-                    }
-                })
-                .setNeutralButton("Don't Save but Continue", new DialogInterface.OnClickListener() {
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(getActivity(), HomeActivity.class);
                         startActivity(intent);
                     }
                 })
-                .setPositiveButton("Save and Continue", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //save new zip code to file
