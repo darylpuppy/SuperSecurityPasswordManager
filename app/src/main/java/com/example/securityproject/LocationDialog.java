@@ -42,6 +42,7 @@ public class LocationDialog extends AppCompatDialogFragment {
                         saveNewZip(newZipCode, user);
 
                         Intent intent = new Intent(getActivity(), HomeActivity.class);
+                        intent.putExtra("account", user);
                         startActivity(intent);
                     }
                 });
