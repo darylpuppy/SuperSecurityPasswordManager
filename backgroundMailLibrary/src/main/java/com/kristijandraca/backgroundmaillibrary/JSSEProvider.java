@@ -1,4 +1,4 @@
-package com.kristijandraca.backgroundmaillibrary.mail;
+package com.kristijandraca.backgroundmaillibrary;
 
 import java.security.AccessController;
 import java.security.Provider;

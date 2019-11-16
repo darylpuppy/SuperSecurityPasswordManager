@@ -1,8 +1,11 @@
 package com.example.securityproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
@@ -76,26 +79,52 @@ public class MessageActivity extends AppCompatActivity{
 
     public void submitPIN(View v){
         String inputPIN = etPIN.getText().toString();
-        if (inputPIN.equals("" + PIN)){
-            zipList = getZipCodes();
-            client = LocationServices.getFusedLocationProviderClient(this);
-            client.getLastLocation()
-                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-                        @Override
-                        public void onSuccess(Location location) {
-                            lastLocation = location;
-                            //Get last known location
-                            if(lastLocation == null){
-                                return;
-                            }
-                            if(!Geocoder.isPresent()){
-                                Toast.makeText(MessageActivity.this, R.string.no_geocoder_available,Toast.LENGTH_LONG).show();
-                                return;
-                            }
-                            //Start service
-                            startIntentService();
+        if (inputPIN.equals("" + PIN) || true){
+            zipList = getZipCodes();if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        0);
+            } else {
+                checkLocation();
+            }
+        }
+    }
+
+    public void checkLocation(){
+        System.out.println("hello checking location");
+        client = LocationServices.getFusedLocationProviderClient(this);
+        client.getLastLocation()
+                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        System.out.println("hello was a success");
+                        lastLocation = location;
+                        //Get last known location
+                        if(lastLocation == null){
+                            System.out.println("last location is null");
+                            return;
                         }
-                    });
+                        if(!Geocoder.isPresent()){
+                            Toast.makeText(MessageActivity.this, R.string.no_geocoder_available,Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        System.out.println("about to start service");
+                        //Start service
+                        startIntentService();
+                    }
+                });
+    }
+
+    public void onRequestPermissionsResult(int requestCode,
+                                           String[] permissions,
+                                           int[] grantResults) {
+        if (requestCode == 0) {
+            if(grantResults.length == 1
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                checkLocation();
+            }
         }
     }
 
@@ -127,6 +156,7 @@ public class MessageActivity extends AppCompatActivity{
         intent.putExtra(Constants.RECEIVER, resultReceiver);
         //provide location obj to service for conversion to an address
         intent.putExtra(Constants.LOCATION_DATA_EXTRA, lastLocation);
+        System.out.println("hello starting service");
         startService(intent);
     }
 
@@ -138,6 +168,7 @@ public class MessageActivity extends AppCompatActivity{
 
         @Override
         protected void onReceiveResult(int resultCode, Bundle resultData) {
+            System.out.println("hello received location");
             if(resultData == null){
                 return;
             }

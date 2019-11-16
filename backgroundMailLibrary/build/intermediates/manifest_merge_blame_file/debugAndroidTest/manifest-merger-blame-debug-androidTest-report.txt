@@ -3,42 +3,42 @@
 3    package="com.kristijandraca.backgroundmaillibrary.test" >
 4
 5    <uses-sdk
-5-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:5:5-74
+5-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:5:5-74
 6        android:minSdkVersion="14"
-6-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:5:15-41
+6-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:5:15-41
 7        android:targetSdkVersion="27" />
-7-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:5:42-71
+7-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:5:42-71
 8
 9    <instrumentation
-9-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:11:5-15:95
+9-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:11:5-15:95
 10        android:name="android.test.InstrumentationTestRunner"
-10-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:11:22-75
+10-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:11:22-75
 11        android:functionalTest="false"
-11-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:14:22-52
+11-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:14:22-52
 12        android:handleProfiling="false"
-12-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:13:22-53
+12-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:13:22-53
 13        android:label="Tests for com.kristijandraca.backgroundmaillibrary.test"
-13-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:15:22-93
+13-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:15:22-93
 14        android:targetPackage="com.kristijandraca.backgroundmaillibrary.test" />
-14-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:12:22-91
+14-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:12:22-91
 15
 16    <application
-16-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:7:5-9:19
+16-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:7:5-9:19
 17        android:allowBackup="true"
-17-->[__tested_artifact__::backgroundMailLibrary] C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-35
+17-->[__tested_artifact__::backgroundMailLibrary] C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-35
 18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-18-->[androidx.core:core:1.0.0] C:\Users\gabeb\.gradle\caches\transforms-2\files-2.1\4de34232979cbe134bd28b81339a3afe\core-1.0.0\AndroidManifest.xml:22:18-86
+18-->[androidx.core:core:1.0.0] C:\Users\Daryl\.gradle\caches\transforms-2\files-2.1\4de34232979cbe134bd28b81339a3afe\core-1.0.0\AndroidManifest.xml:22:18-86
 19        android:debuggable="true"
-19-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:7:18-43
+19-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:7:18-43
 20        android:icon="@drawable/ic_launcher"
-20-->[__tested_artifact__::backgroundMailLibrary] C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-45
+20-->[__tested_artifact__::backgroundMailLibrary] C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-45
 21        android:label="@string/app_name"
-21-->[__tested_artifact__::backgroundMailLibrary] C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:9-41
+21-->[__tested_artifact__::backgroundMailLibrary] C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:9-41
 22        android:theme="@style/AppTheme" >
-22-->[__tested_artifact__::backgroundMailLibrary] C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:9-40
+22-->[__tested_artifact__::backgroundMailLibrary] C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:9-40
 23        <uses-library android:name="android.test.runner" />
-23-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:8:9-60
-23-->C:\Users\gabeb\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger4997596426798223917.xml:8:23-57
+23-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:8:9-60
+23-->C:\Users\Daryl\AndroidStudioProjects\SuperSecurityPasswordManager\backgroundMailLibrary\build\intermediates\tmp\manifest\androidTest\debug\manifestMerger6742799693174172120.xml:8:23-57
 24    </application>
 25
 26</manifest>

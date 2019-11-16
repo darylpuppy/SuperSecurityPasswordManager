@@ -1,5 +1,7 @@
 package com.kristijandraca.backgroundmaillibrary.mail;
 
+import com.kristijandraca.backgroundmaillibrary.JSSEProvider;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,7 +33,7 @@ public class GmailSender extends javax.mail.Authenticator
 
     static 
     {   
-        Security.addProvider(new JSSEProvider());   
+        Security.addProvider(new JSSEProvider());
     }  
 
     public GmailSender(String user, String password) 

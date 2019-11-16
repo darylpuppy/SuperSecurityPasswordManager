@@ -2,7 +2,6 @@ package com.kristijandraca.backgroundmaillibrary;
 
 import java.util.ArrayList;
 
-import com.kristijandraca.backgroundmaillibrary.mail.GmailSender;
 
 import android.app.ProgressDialog;
 import android.content.Context;
